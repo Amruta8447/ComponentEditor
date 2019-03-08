@@ -5,17 +5,18 @@
   ],
   "blockId": "398782",
   "app": {
-    "appName": "Methane, Butane, LPG and Smoke Gas Sensor - MQ-2",
-    "image": "http://res.cloudinary.com/circuito/image/upload/ppjijyv5sog7qwg7tz1v",
+    "visible": true,
     "numericName": "MQ2",
     "shortName": "Smoke and Gas Sensor",
+    "appName": "Methane, Butane, LPG and Smoke Gas Sensor - MQ-2",
+    "image": "http://res.cloudinary.com/circuito/image/upload/ppjijyv5sog7qwg7tz1v",
     "indicators": {
       "verified": false,
       "solder": false
     },
-    "desc": "<p>This sensor is sensitive for flamable and combustible gasses such as Methane, Butane, LPG, smoke.</p>",
-    "visible": true
+    "desc": "<p>This sensor is sensitive for flamable and combustible gasses such as Methane, Butane, LPG, smoke.</p>"
   },
+  "altComp": {},
   "circuits": [
     {
       "name": "5v",
@@ -80,6 +81,20 @@
             ],
             "portType": "requires"
           }
+        },
+        {
+          "name": "DOUT",
+          "interface": {
+            "portType": "requires",
+            "requires": [
+              {
+                "cost": 0,
+                "spec": "DigitalIn"
+              }
+            ],
+            "unique": true
+          },
+          "includeInFirmware": true
         }
       ],
       "wires": [
@@ -94,6 +109,10 @@
         {
           "from": "MQ2_1.5V",
           "to": "5V"
+        },
+        {
+          "from": "MQ2_1.DOUT",
+          "to": "DOUT"
         }
       ],
       "cost": 1
